@@ -6,9 +6,10 @@ import pyomo.environ as pyo
 class BaseModel(pyo.ConcreteModel):
     """базовый класс модели."""
 
-    def __init__(self, id: str = ""):
+    def __init__(self, id: str = "", description: str=""):
         super().__init__(id)
         self._id = id
+        self._description = description # это поле будем собирать и строить википедию объектов
         self._sub_models = []
 
     @property

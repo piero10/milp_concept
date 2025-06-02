@@ -7,23 +7,6 @@ from tabulate import tabulate
 from src.task import Task
 from src.machine import Machine
 
-input_data_tasks = {
-    1: {
-        "deadline": 10,
-        "duration": 10,
-        "reward": 6},
-
-    2: {
-        "deadline": 16,
-        "duration": 5,
-        "reward": 5},
-
-    3: {
-        "deadline": 11,
-        "duration": 6,
-        "reward": 1}
-
-}
 
 def load_data():
     with open(os.path.join("..", "data", "data.json"), 'r') as file:
@@ -41,8 +24,6 @@ def build_model(data: dict):
             length=d["duration"])
         for d in data["tasks"]
     ]
-
-
 
     machine = Machine(
         id="test_machine",
@@ -66,9 +47,10 @@ if __name__ == "__main__":
     solution = solver.solve(machine)
 
     print("Оптимизация станка:")
-    print("статус решения:  ", {solution.solver.termination_condition})
+    print("Статус решения:  ", {solution.solver.termination_condition})
     print()
 
+    print("Решение:  ", {solution.solver.termination_condition})
     arr = []
     for t in machine._tasks:
         if t.exists > 0.001:

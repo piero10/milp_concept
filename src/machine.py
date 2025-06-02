@@ -109,6 +109,5 @@ class Machine(BaseModel):
 
         sense=pyo.minimize)
 
-
         return self.objective
 

@@ -1,11 +1,9 @@
-from multiprocessing.spawn import set_executable
-
-import numpy as np
 import pyomo.environ as pyo
 
 from src.base_model import BaseModel
 
 big_M = 10e7
+
 
 class Task(BaseModel):
     """Задание"""

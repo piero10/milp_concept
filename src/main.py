@@ -71,6 +71,7 @@ if __name__ == "__main__":
 
     arr = []
     for t in machine._tasks:
-        arr.append([t.id, t.start, t.end, t.length, t.exists])
-    df = pd.DataFrame(arr, columns=["ИД", "начало", "окончание", "продолжительность", "признак выполнения операции"])
+        if t.exists > 0.001:
+            arr.append([t.id, t.start, t.end, t.length])
+    df = pd.DataFrame(arr, columns=["ИД", "начало", "окончание", "продолжительность"])
     print(tabulate(df, headers=df.columns))
